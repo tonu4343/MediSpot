@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>会員登録 | MediSpot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand-mark">✚</span>MediSpot
+  </a>
+</header>
+
+<main class="auth-page">
+  <section class="auth-card">
+    <h1>会員登録</h1>
+    <p>求職者または求人者を選択して登録してください。</p>
+
+    <form id="registerForm">
+      <div class="role-select">
+        <label>
+          <input type="radio" name="role" value="seeker" checked>
+          求職者
+        </label>
+
+        <label>
+          <input type="radio" name="role" value="employer">
+          求人者
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>氏名 / 担当者名</label>
+        <input type="text" id="name" required>
+      </div>
+
+      <div class="form-group">
+        <label>メールアドレス</label>
+        <input type="email" id="email" required>
+      </div>
+
+      <div class="form-group">
+        <label>パスワード</label>
+        <input type="password" id="password" minlength="8" required>
+      </div>
+
+      <div id="seekerFields">
+        <div class="form-group">
+          <label>保有資格（職種）</label>
+          <select id="category">
+            <option value="">選択してください</option>
+            <option>看護師</option>
+            <option>臨床検査技師</option>
+            <option>放射線技師</option>
+            <option>理学療法士</option>
+            <option>作業療法士</option>
+            <option>言語聴覚士</option>
+            <option>ヘルパー</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="employerFields" style="display:none;">
+        <div class="form-group">
+          <label>医療機関名</label>
+          <input type="text" id="organizationName">
+        </div>
+
+        <div class="form-group">
+          <label>施設区分</label>
+          <select id="facility">
+            <option value="">選択してください</option>
+            <option>病院</option>
+            <option>クリニック</option>
+            <option>調剤薬局</option>
+            <option>介護施設</option>
+            <option>健診センター</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>所在地</label>
+          <input type="text" id="address">
+        </div>
+      </div>
+
+      <button type="submit" class="button button-teal auth-submit">
+        登録する
+      </button>
+
+      <p class="auth-link">
+        すでにアカウントをお持ちの方は
+        <a href="login.html">ログイン</a>
+      </p>
+    </form>
+  </section>
+</main>
+
+<script>
+  const roleRadios = document.querySelectorAll('input[name="role"]');
+  const seekerFields = document.getElementById("seekerFields");
+  const employerFields = document.getElementById("employerFields");
+
+  roleRadios.forEach((radio) => {
+    radio.addEventListener("change", () => {
+      if (radio.value === "seeker") {
+        seekerFields.style.display = "block";
+        employerFields.style.display = "none";
+      } else {
+        seekerFields.style.display = "none";
+        employerFields.style.display = "block";
+      }
+    });
+  });
+
+  document.getElementById("registerForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("登録画面が完成しました。次にSupabaseと接続します。");
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="register.js"></script>
+
+</body>
+</html>
