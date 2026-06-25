@@ -1,9 +1,9 @@
-document.getElementById("registerForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+document.getElementById("registerForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
 
   const role = document.querySelector('input[name="role"]:checked').value;
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value;
 
   const { data, error } = await supabaseClient.auth.signUp({
@@ -16,20 +16,24 @@ document.getElementById("registerForm").addEventListener("submit", async (e) => 
     return;
   }
 
-  const userId = data.user.id;
+  const userId = data.user && data.user.id;
+  if (!userId) {
+    alert("確認メールを送信しました。メールを確認して登録を完了してください。");
+    return;
+  }
 
-  await supabaseClient.from("profiles").insert({
+  const { error: profileError } = await supabaseClient.from("profiles").insert({
     id: userId,
     role,
     name,
     email
   });
 
-  alert("登録が完了しました");
-
-  if (role === "seeker") {
-    location.href = "seeker-home.html";
-  } else {
-    location.href = "employer-home.html";
+  if (profileError) {
+    alert("プロフィール登録に失敗しました。");
+    return;
   }
+
+  alert("登録が完了しました。");
+  location.href = role === "seeker" ? "seeker-home.html" : "employer-home.html";
 });
