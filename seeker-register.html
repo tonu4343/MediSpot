@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>求職者登録 | MediSpot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header simple-header">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">医</span>
+      <span class="brand-copy"><strong>MediSpot</strong><small>メディスポット</small></span>
+    </a>
+  </header>
+
+  <main class="auth-page">
+    <section class="auth-card auth-card-wide">
+      <p class="eyebrow">Job Seeker</p>
+      <h1>求職者登録</h1>
+      <p>医療資格や希望条件を入力して、あなたに合う働き方を探しましょう。</p>
+
+      <form id="registerForm" data-role="seeker">
+        <input type="hidden" id="role" value="seeker">
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name">氏名</label>
+            <input type="text" id="name" autocomplete="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" autocomplete="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="password">パスワード</label>
+            <input type="password" id="password" autocomplete="new-password" minlength="8" required>
+          </div>
+
+          <div class="form-group">
+            <label for="category">保有資格・職種</label>
+            <select id="category" required>
+              <option value="">選択してください</option>
+              <option>看護師</option>
+              <option>臨床検査技師</option>
+              <option>診療放射線技師</option>
+              <option>理学療法士</option>
+              <option>作業療法士</option>
+              <option>言語聴覚士</option>
+              <option>ヘルパー</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="desiredWork">希望勤務形態</label>
+            <select id="desiredWork">
+              <option value="">選択してください</option>
+              <option>スポット勤務</option>
+              <option>業務委託</option>
+              <option>どちらも希望</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="location">希望エリア</label>
+            <input type="text" id="location" placeholder="例：東京都、神奈川県">
+          </div>
+
+          <div class="form-group">
+            <label for="experience">経験年数</label>
+            <input type="text" id="experience" placeholder="例：3年">
+          </div>
+
+          <div class="form-group form-wide">
+            <label for="profileNote">自己PR・希望条件</label>
+            <textarea id="profileNote" rows="4" placeholder="勤務可能日、得意分野、希望条件など"></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="button button-primary auth-submit">登録する</button>
+
+        <p class="auth-link">
+          求人者の方は <a href="employer-register.html">求人者登録</a> / 登録済みの方は <a href="login.html">ログイン</a>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="register.js"></script>
+</body>
+</html>
