@@ -518,39 +518,38 @@ footer {
 }
 .auth-visual-panel {
   position: relative;
-  min-height: 720px;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--ink);
+  background: linear-gradient(180deg, #fff, var(--panel));
   box-shadow: var(--shadow);
 }
 .auth-visual-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(35, 50, 56, .05), rgba(35, 50, 56, .82));
-  z-index: 1;
+  display: none;
 }
 .auth-layout-employer .auth-visual-panel::before {
-  background: linear-gradient(180deg, rgba(35, 50, 56, .02), rgba(0, 108, 104, .84));
+  display: none;
 }
 .auth-visual-panel img {
   width: 100%;
-  height: 100%;
-  min-height: 720px;
-  object-fit: cover;
+  height: 360px;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center;
+  background: linear-gradient(135deg, #fff, #eef2f3);
+  border-bottom: 1px solid var(--line);
 }
 .auth-visual-copy {
-  position: absolute;
-  left: 28px;
-  right: 28px;
-  bottom: 28px;
-  z-index: 2;
-  color: #fff;
+  position: static;
+  margin-top: auto;
+  padding: 28px;
+  color: var(--ink);
 }
 .auth-visual-copy .eyebrow {
-  color: #fff;
+  color: var(--teal-dark);
 }
 .auth-visual-copy h1 {
   margin: 0;
@@ -559,7 +558,7 @@ footer {
 }
 .auth-visual-copy p {
   margin: 16px 0 0;
-  color: rgba(255, 255, 255, .9);
+  color: var(--muted);
   font-weight: 800;
 }
 .auth-points {
@@ -570,13 +569,12 @@ footer {
 }
 .auth-points span {
   padding: 8px 11px;
-  border: 1px solid rgba(255, 255, 255, .46);
+  border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, .16);
-  color: #fff;
+  background: #fff;
+  color: var(--teal-dark);
   font-size: 12px;
   font-weight: 900;
-  backdrop-filter: blur(8px);
 }
 .auth-form-panel {
   align-self: stretch;
@@ -785,9 +783,12 @@ footer {
   .master-grid,
   .auth-layout,
   .dashboard-hero { grid-template-columns: 1fr; }
-  .auth-visual-panel,
-  .auth-visual-panel img {
+  .auth-visual-panel {
     min-height: 360px;
+  }
+  .auth-visual-panel img {
+    height: 320px;
+    min-height: 0;
   }
   .hero-visual { left: 34%; }
   .feature-grid,
@@ -846,14 +847,15 @@ footer {
   .cta-box { padding: 26px; }
   .auth-card { padding: 24px; }
   .auth-split-page { padding: 26px 14px 44px; }
-  .auth-visual-panel,
+  .auth-visual-panel {
+    min-height: 0;
+  }
   .auth-visual-panel img {
-    min-height: 300px;
+    height: 260px;
+    min-height: 0;
   }
   .auth-visual-copy {
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
+    padding: 20px;
   }
   .auth-visual-copy h1 { font-size: 28px; }
   .register-choice-page { padding: 38px 0 54px; }
