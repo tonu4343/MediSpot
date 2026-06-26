@@ -14,11 +14,26 @@
     </a>
   </header>
 
-  <main class="auth-page">
-    <section class="auth-card auth-card-wide">
-      <p class="eyebrow">Job Seeker</p>
-      <h1>求職者登録</h1>
-      <p>医療資格や希望条件を入力して、あなたに合う働き方を探しましょう。</p>
+  <main class="auth-page auth-split-page">
+    <section class="auth-layout auth-layout-seeker">
+      <aside class="auth-visual-panel">
+        <img src="images/19_job_seeker.png" alt="医療資格を活かして働く求職者">
+        <div class="auth-visual-copy">
+          <p class="eyebrow">For Job Seekers</p>
+          <h1>あなたの資格と予定に合う働き方へ。</h1>
+          <p>スポット勤務・業務委託など、医療職に特化した案件へスムーズにつながります。</p>
+          <div class="auth-points">
+            <span>資格を登録</span>
+            <span>希望条件を整理</span>
+            <span>案件へ応募</span>
+          </div>
+        </div>
+      </aside>
+
+      <section class="auth-card auth-card-wide auth-form-panel">
+        <p class="eyebrow">Job Seeker</p>
+        <h2>求職者登録</h2>
+        <p>医療資格や希望条件を入力して、あなたに合う働き方を探しましょう。</p>
 
       <form id="registerForm" data-role="seeker">
         <input type="hidden" id="role" value="seeker">
@@ -85,6 +100,7 @@
           求人者の方は <a href="employer-register.html">求人者登録</a> / 登録済みの方は <a href="login.html">ログイン</a>
         </p>
       </form>
+    </section>
     </section>
   </main>
 

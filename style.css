@@ -505,6 +505,82 @@ footer {
   display: grid;
   place-items: center;
 }
+.auth-split-page {
+  padding: 42px 24px 64px;
+  align-items: start;
+}
+.auth-layout {
+  width: min(1120px, 100%);
+  display: grid;
+  grid-template-columns: minmax(310px, .82fr) minmax(0, 1.18fr);
+  gap: 20px;
+  align-items: stretch;
+}
+.auth-visual-panel {
+  position: relative;
+  min-height: 720px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--ink);
+  box-shadow: var(--shadow);
+}
+.auth-visual-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(35, 50, 56, .05), rgba(35, 50, 56, .82));
+  z-index: 1;
+}
+.auth-layout-employer .auth-visual-panel::before {
+  background: linear-gradient(180deg, rgba(35, 50, 56, .02), rgba(0, 108, 104, .84));
+}
+.auth-visual-panel img {
+  width: 100%;
+  height: 100%;
+  min-height: 720px;
+  object-fit: cover;
+}
+.auth-visual-copy {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 28px;
+  z-index: 2;
+  color: #fff;
+}
+.auth-visual-copy .eyebrow {
+  color: #fff;
+}
+.auth-visual-copy h1 {
+  margin: 0;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.16;
+}
+.auth-visual-copy p {
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, .9);
+  font-weight: 800;
+}
+.auth-points {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.auth-points span {
+  padding: 8px 11px;
+  border: 1px solid rgba(255, 255, 255, .46);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .16);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+  backdrop-filter: blur(8px);
+}
+.auth-form-panel {
+  align-self: stretch;
+}
 .register-choice-page {
   min-height: calc(100vh - 76px);
   padding: 62px 0 72px;
@@ -626,7 +702,8 @@ footer {
 .auth-card-wide {
   width: min(820px, 100%);
 }
-.auth-card h1 { margin: 0 0 8px; font-size: 30px; }
+.auth-card h1,
+.auth-card h2 { margin: 0 0 8px; font-size: 30px; line-height: 1.25; }
 .role-select { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0; }
 .role-select label { padding: 14px; border: 1px solid var(--line); border-radius: 8px; font-weight: 800; cursor: pointer; background: #fff; }
 .form-grid {
@@ -706,7 +783,12 @@ footer {
   .menu-button { display: block; }
   .slider-layout,
   .master-grid,
+  .auth-layout,
   .dashboard-hero { grid-template-columns: 1fr; }
+  .auth-visual-panel,
+  .auth-visual-panel img {
+    min-height: 360px;
+  }
   .hero-visual { left: 34%; }
   .feature-grid,
   .flow-list,
@@ -763,6 +845,17 @@ footer {
   .price-card strong { font-size: 38px; }
   .cta-box { padding: 26px; }
   .auth-card { padding: 24px; }
+  .auth-split-page { padding: 26px 14px 44px; }
+  .auth-visual-panel,
+  .auth-visual-panel img {
+    min-height: 300px;
+  }
+  .auth-visual-copy {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+  .auth-visual-copy h1 { font-size: 28px; }
   .register-choice-page { padding: 38px 0 54px; }
   .role-choice-grid,
   .choice-flow,
