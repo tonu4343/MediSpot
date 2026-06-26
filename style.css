@@ -590,6 +590,35 @@ footer {
 .choice-login {
   margin-top: 24px;
 }
+.choice-flow {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.choice-flow article {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .76);
+}
+.choice-flow span {
+  color: var(--pink-deep);
+  font-size: 12px;
+  font-weight: 900;
+}
+.choice-flow strong {
+  display: block;
+  margin: 4px 0;
+  color: var(--ink);
+  font-size: 15px;
+}
+.choice-flow p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
 .auth-card {
   width: min(520px, 100%);
   padding: 36px;
@@ -736,6 +765,7 @@ footer {
   .auth-card { padding: 24px; }
   .register-choice-page { padding: 38px 0 54px; }
   .role-choice-grid,
+  .choice-flow,
   .form-grid {
     grid-template-columns: 1fr;
   }
